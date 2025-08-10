@@ -1,0 +1,11 @@
+{
+  "base_path": "/Volumes/nyc_taxi/data_area/lake_area/",
+  "paths": {
+    "bronze": "bronze/",
+    "silver": "silver/",
+    "gold": "gold/",
+    "raw": "raw/"
+  },
+  "months": ["01","02","03","04"],
+  "dataset_base_url": "https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2023-{}.parquet"
+}
