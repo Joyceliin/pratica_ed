@@ -3,6 +3,10 @@ Prática de Engenharia de Dados
 
 # 📊 Desafio de Engenharia de Dados no Databricks
 
+## Configuração do ambiente
+**Arquivo**: config.json.
+
+**Estrutura proposta**: Os arquivos serem baixados diretamente da fonte para o volume **bronze**, e apartir desse momento termos a camada de tratamento **prata** e analítica **ouro**. Não consegui refletir diretamente esse cenário por limitação da versão community com o uso do da biblioteca request. Para contornar a situação, adicionei um volume raw onde disponibilizo os arquivos parquet para serem consumidos e tratados para as camadas.
 
 ## 1 Ingestão de Dados
 **Objetivo:** Armazenar os dados de forma estruturada na camada **Bronze**.
@@ -12,11 +16,11 @@ Prática de Engenharia de Dados
 - Aplicado apenas normalização para colunas mapeadas que devem ter a mesma escrita em todas as bases, e caso não exista fique nula.
 
 **Código:**
-ingest_parquet.py
+ingest_parquet
 
 
 ## 2 Transformação e qualidade de Dados
-**Objetivo:** Tratar, normalizar e limpar dados **Prata**.
+**Objetivo:** Tratar, normalizar e limpar dados na camada **Prata**.
 
 **O que foi feito:**
 - Identificado registros que não contemplam as datas dos arquivos extraidos. pipckup e dropoff datetimes.
@@ -24,17 +28,17 @@ ingest_parquet.py
 - Campos de id como nome que modifiquei para valores padrões (nulos). RatecodeID, store_and_fwd_flag,payment_type.
 
 **Código:**
-transform_parquet.py
+transform_parquet
 
 
 ## 3 Visões analíticas 
-**Objetivo:** Criar metricas e indicadores **Ouro**.
+**Objetivo:** Criar metricas e indicadores na camada **Ouro**.
 
 **O que foi feito:**
 - Indicadores a nivel diario, de pagamento e por hora, para análise de custos de viagem, tempo de duração, media de passageiros e etc.
 
 **Código:**
-indicators_base.py
+indicators_base
 
 
 ## 4 Automatização 
@@ -45,16 +49,16 @@ indicators_base.py
 - Leva em consideração que um processo separado disponibiliza os arquivos no volume raw. Não foi possivel simular esse upload dos arquivos no volume do databricks e nem via request devido a limitações da versão community.
 
 **Código:**
-automatizacao_data_area.py
+automatizacao_data_area
 
 
 ## 5 Inferência de informações 
 **Objetivo:** Gerar insights relevantes sobre os dados tratatos.
 
 **O que foi feito:**
-- Evolução diária (volume, receita, ticket) + média móvel 7 dias
+- Evolução diária volume, receita, ticket e média móvel 7 dias
 - Horarios do dia que mais tem corridas e receita
 - Share de corridas e receita
 
-**Código/:**
-automatizacao_data_area.py
+**Código:**
+analises
