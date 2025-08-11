@@ -3,6 +3,12 @@ Prática de Engenharia de Dados
 
 # 📊 Desafio de Engenharia de Dados no Databricks
 
+## Origem dos dados
+
+**https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page**
+- Dicionário de dados: data_dictionary_trip_records_yellow.pdf
+- Base de dados: Yellow Trip Records de jan a abr/2023
+
 ## Configuração do ambiente
 **Arquivo**: config.json.
 
